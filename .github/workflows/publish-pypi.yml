@@ -60,22 +60,22 @@ jobs:
         twine check dist/*
 
     # Option 1: Trusted Publishing (RECOMMENDED - no token needed)
-    - name: Publish to PyPI (Trusted Publishing)
-      if: github.event_name == 'release'
-      uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        verbose: true
-        print-hash: true
+    #- name: Publish to PyPI (Trusted Publishing)
+    #  if: github.event_name == 'release'
+    #  uses: pypa/gh-action-pypi-publish@release/v1
+    #  with:
+    #    verbose: true
+    #    print-hash: true
 
     # Option 2: API Token (if trusted publishing not set up)
     # Uncomment this and comment out the above if using API token
-    # - name: Publish to PyPI (API Token)
-    #   if: github.event_name == 'release'
-    #   env:
-    #     TWINE_USERNAME: __token__
-    #     TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
-    #   run: |
-    #     twine upload dist/*
+    - name: Publish to PyPI (API Token)
+      if: github.event_name == 'release'
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+      run: |
+        twine upload dist/*
 
   verify-install:
     name: Verify PyPI Installation
