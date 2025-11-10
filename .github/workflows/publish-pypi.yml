@@ -71,16 +71,30 @@ jobs:
     # Uncomment this and comment out the above if using API token
     - name: Publish to PyPI (API Token)
       if: github.event_name == 'release'
+      continue-on-error: true
+      id: publish
       env:
         TWINE_USERNAME: __token__
         TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
       run: |
-        twine upload dist/*
+        echo "📦 Publishing to PyPI..."
+        twine upload dist/* --verbose || {
+          echo "❌ Publishing failed!"
+          echo "Common issues:"
+          echo "  1. Package name 'image-curator' may already be taken on PyPI"
+          echo "  2. API token may be invalid or expired"
+          echo "  3. Package version may already exist"
+          echo ""
+          echo "Check https://pypi.org/project/image-curator/ to see if it exists"
+          exit 1
+        }
+        echo "✅ Successfully published to PyPI!"
 
   verify-install:
     name: Verify PyPI Installation
     runs-on: ubuntu-latest
     needs: publish
+    if: success()  # Only run if publish succeeded
     strategy:
       matrix:
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
