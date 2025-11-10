@@ -3,7 +3,7 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/ghostcipher1/image-curator/workflows/CI/badge.svg)](https://github.com/ghostcipher1/image-curator/actions/workflows/ci.yml)
-[![PyPI version](https://badge.fury.io/py/image-curator.svg)](https://badge.fury.io/py/image-curator)
+[![PyPI version](https://img.shields.io/pypi/v/image-curator.svg)](https://pypi.org/project/image-curator/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 A production-ready, modular Python application for curating and downloading images from multiple sources based on configurable category searches. Currently supports **Flickr** with an extensible plugin architecture designed for easy addition of new image sources.
