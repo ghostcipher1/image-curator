@@ -133,7 +133,9 @@ def validate_license(license_value: str) -> Optional[str]:
     retry=retry_if_exception_type((requests.exceptions.RequestException,)),
     reraise=True,
 )
-def http_get_with_retry(url: str, params: Optional[Dict] = None, timeout: int = 30) -> requests.Response:
+def http_get_with_retry(
+    url: str, params: Optional[Dict] = None, timeout: int = 30
+) -> requests.Response:
     """
     Perform HTTP GET request with automatic retry and exponential backoff.
 

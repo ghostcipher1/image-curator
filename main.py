@@ -144,9 +144,7 @@ def main() -> None:
     num_images = args.limit if args.limit is not None else config.NUM_IMAGES
     output_dir = args.out if args.out is not None else config.OUTPUT_DIR
     categories = (
-        parse_categories(args.categories)
-        if args.categories is not None
-        else config.CATEGORIES
+        parse_categories(args.categories) if args.categories is not None else config.CATEGORIES
     )
 
     # Build provider-specific config with CLI overrides

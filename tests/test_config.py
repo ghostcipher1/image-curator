@@ -8,6 +8,7 @@ Verifies that config.py contains all required constants with correct types.
 def test_config_imports():
     """Test that config module can be imported."""
     import config
+
     assert config is not None
 
 

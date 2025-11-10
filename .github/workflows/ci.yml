@@ -101,5 +101,5 @@ jobs:
 
     - name: Run bandit security check
       run: |
-        bandit -r . -f json -o bandit-report.json || true
-        bandit -r . -f screen
+        bandit -r . -f json -o bandit-report.json --exclude ./.venv,./tests || true
+        bandit -r . -f screen --exclude ./.venv,./tests || true

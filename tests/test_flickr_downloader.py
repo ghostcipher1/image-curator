@@ -208,7 +208,9 @@ class TestFlickrDownloader:
     @patch("image_sources.flickr.download_file")
     @patch("image_sources.flickr.ensure_directory")
     @patch("image_sources.flickr.http_get_with_retry")
-    def test_download_success(self, mock_http_get, mock_ensure_dir, mock_download_file, downloader, tmp_path):
+    def test_download_success(
+        self, mock_http_get, mock_ensure_dir, mock_download_file, downloader, tmp_path
+    ):
         """Test successful download workflow."""
         # Mock API response
         mock_response = Mock()
@@ -272,7 +274,9 @@ class TestFlickrDownloader:
     @patch("image_sources.flickr.download_file")
     @patch("image_sources.flickr.ensure_directory")
     @patch("image_sources.flickr.http_get_with_retry")
-    def test_download_partial_failure(self, mock_http_get, mock_ensure_dir, mock_download_file, downloader, tmp_path):
+    def test_download_partial_failure(
+        self, mock_http_get, mock_ensure_dir, mock_download_file, downloader, tmp_path
+    ):
         """Test download with some failures."""
         # Mock API response
         mock_response = Mock()

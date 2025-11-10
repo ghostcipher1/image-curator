@@ -111,8 +111,7 @@ class FlickrDownloader:
             total = data.get("photos", {}).get("total", 0)
 
             logger.info(
-                f"Found {len(photos)} photos for query '{query}' "
-                f"(total available: {total})"
+                f"Found {len(photos)} photos for query '{query}' " f"(total available: {total})"
             )
 
             return photos
@@ -190,9 +189,7 @@ class FlickrDownloader:
                     photo_url = self._get_photo_url(photo)
 
                     if not photo_url:
-                        logger.warning(
-                            f"No URL available for photo {photo.get('id', 'unknown')}"
-                        )
+                        logger.warning(f"No URL available for photo {photo.get('id', 'unknown')}")
                         failed += 1
                         pbar.update(1)
                         continue
@@ -221,9 +218,7 @@ class FlickrDownloader:
 
                     pbar.update(1)
 
-            logger.info(
-                f"Completed '{query}': {successful} successful, {failed} failed"
-            )
+            logger.info(f"Completed '{query}': {successful} successful, {failed} failed")
 
         except (requests.exceptions.RequestException, ValueError) as e:
             logger.error(f"Download failed for category '{query}': {e}")
