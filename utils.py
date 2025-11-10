@@ -180,6 +180,6 @@ def download_file(url: str, output_path: Path) -> bool:
     except requests.exceptions.RequestException as e:
         logger.error(f"Failed to download {url}: {e}")
         return False
-    except IOError as e:
+    except OSError as e:
         logger.error(f"Failed to write file {output_path}: {e}")
         return False
