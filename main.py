@@ -162,15 +162,15 @@ def main() -> None:
     provider_config = flickr_config if source == "flickr" else {}
 
     # Log configuration
-    logger.info(f"Configuration:")
-    logger.info(f"  Source: {source}")
-    logger.info(f"  Categories: {categories}")
-    logger.info(f"  Images per category: {num_images}")
-    logger.info(f"  Output directory: {output_dir}")
+    logger.info("Configuration:")
+    logger.info("  Source: %s", source)
+    logger.info("  Categories: %s", categories)
+    logger.info("  Images per category: %s", num_images)
+    logger.info("  Output directory: %s", output_dir)
     if source == "flickr":
-        logger.info(f"  Flickr safe_search: {flickr_config.get('safe_search')}")
-        logger.info(f"  Flickr license: {flickr_config.get('license')}")
-        logger.info(f"  Flickr content_type: {flickr_config.get('content_type')}")
+        logger.info("  Flickr safe_search: %s", flickr_config.get("safe_search"))
+        logger.info("  Flickr license: %s", flickr_config.get("license"))
+        logger.info("  Flickr content_type: %s", flickr_config.get("content_type"))
 
     try:
         # Start download

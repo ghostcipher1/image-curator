@@ -4,8 +4,6 @@ Tests for configuration module.
 Verifies that config.py contains all required constants with correct types.
 """
 
-import pytest
-
 
 def test_config_imports():
     """Test that config module can be imported."""

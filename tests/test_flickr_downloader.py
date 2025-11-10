@@ -5,15 +5,13 @@ Uses mocked responses to test the FlickrDownloader class without
 making real API calls.
 """
 
-import json
-from pathlib import Path
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 
 import pytest
 import requests
 
 from image_sources.flickr import FlickrDownloader
-from utils import sanitize_filename, validate_license, get_api_key
+from utils import get_api_key, sanitize_filename, validate_license
 
 
 class TestUtils:

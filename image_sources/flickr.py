@@ -6,18 +6,17 @@ from Flickr using their REST API with configurable search parameters.
 """
 
 import logging
-from pathlib import Path
 from typing import Dict, List, Optional
 
 import requests
 from tqdm import tqdm
 
 from utils import (
+    download_file,
     ensure_directory,
+    http_get_with_retry,
     sanitize_filename,
     validate_license,
-    http_get_with_retry,
-    download_file,
 )
 
 logger = logging.getLogger(__name__)
